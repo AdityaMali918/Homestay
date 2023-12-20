@@ -43,14 +43,17 @@ app.use(cookieParser());
 //     allowedHeaders: 'Content-Type, Authorization',
 // }));
 
-const corsOptions = {
-    origin: ['http://localhost:5173', 'https://airbnbclone-app.onrender.com','https://airbnbclone-j4qe.onrender.com'],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//     origin: 'https://airbnbclone-app.onrender.com',
+//     credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(cors({
+    credentials:true,
+    origin:'https://airbnbclone-app.onrender.com',
+}))
 
 //MONGOOSE
 mongoose.connect(process.env.MONGO_URL);
