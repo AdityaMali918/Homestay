@@ -16,7 +16,7 @@ import PlacePage from './pages/PlacePage';
 import BookingPage from './pages/BookingPage';
 import BookingsPage from './pages/BookingsPage';
 //axios.defaults.baseURL='http://localhost:4000';
-axios.defaults.baseURL='https://airbnbclone-j4qe.onrender.com';
+axios.defaults.baseURL='https://airbnbclone-noku.onrender.com';
 axios.defaults.withCredentials = true;
 function App() {
 
