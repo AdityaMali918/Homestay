@@ -51,10 +51,9 @@ app.use(cookieParser());
 // app.use(cors(corsOptions));
 
 app.use(cors({
-    credentials:true,
     origin:'https://airbnbclone-app.onrender.com',
 }))
-
+c
 //MONGOOSE
 mongoose.connect(process.env.MONGO_URL);
 
