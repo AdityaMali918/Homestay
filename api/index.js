@@ -44,7 +44,7 @@ app.use(cookieParser());
 // }));
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://airbnbclone-app.onrender.com'],
+    origin: ['http://localhost:5173', 'https://airbnbclone-app.onrender.com','https://airbnbclone-j4qe.onrender.com'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
