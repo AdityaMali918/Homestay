@@ -1,0 +1,37 @@
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+input[type="text"].input[type="password"].input[type="email"]{
+    @apply w-full border my-2 py-2 px-3 rounded-2xl;
+}
+button{
+    @apply bg-gray-300;
+}
+button.primary{
+    background-color:'#F5385D' ;
+    @apply bg-primary p-2 w-full text-white rounded-2xl;
+} */
+
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Apply individual utility classes */
+
+/* input[type="text"].input,
+input[type="password"].input,
+input[type="email"].input {
+    @apply w-full border my-2 py-2 px-3 rounded-2xl;
+}
+
+
+button {
+    @apply bg-gray-300;
+}
+
+button.primary {
+    background-color: #F5385D;
+    @apply bg-primary p-2 w-full text-white rounded-2xl;
+} */
