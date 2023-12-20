@@ -43,7 +43,7 @@ app.get('/test', (req, res) => {
     res.json("test ok")
 });
 
-//6T5Djkxl8SRPSU6B
+
 
 app.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
