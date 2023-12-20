@@ -1,13 +1,13 @@
 
 import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";  // Update import
-
+//import { UserContext } from "./UserContext";
 import { UserContext } from "./UserContext";
 
 export default function Header() {
   const { user,ready } = useContext(UserContext);
   const navigate = useNavigate();  // Change from useHistory to useNavigate
-
+  const { setUser,setReady } = useContext(UserContext);
 
     return(<div>
         <header className='flex justify-between' >

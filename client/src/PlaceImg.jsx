@@ -10,6 +10,6 @@ export default function PlaceImg({place,index=0,className=null}) {
     }
 
   return (     
-            <img className={className} src={'http://localhost:4000/uploads/'+place.photos[index]} alt="" />     
+            <img className={className} src={'https://airbnbclone-j4qe.onrender.com/uploads/'+place.photos[index]} alt="" />     
   )
 }
