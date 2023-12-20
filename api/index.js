@@ -36,13 +36,21 @@ app.use(cookieParser());
 
 //app.use(cors());
 
-app.use(cors({
-    credentials: true,
-    origin: 'http://localhost:5173',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type, Authorization',
-}));
+// app.use(cors({
+//     credentials: true,
+//     origin: 'http://localhost:5173',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     allowedHeaders: 'Content-Type, Authorization',
+// }));
 
+const corsOptions = {
+    origin: ['http://localhost:5173', 'https://airbnbclone-app.onrender.com'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 //MONGOOSE
 mongoose.connect(process.env.MONGO_URL);
