@@ -1,10 +1,4 @@
-// import { Link } from "react-router-dom";
-// import { UserContext } from "./UserContext";
-// import { useContext,useEffect } from "react";
 
-// export default function Header(){
-//   const {user}=useContext(UserContext);
-//   useEffect(()=>{},[user])
 import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";  // Update import
 
@@ -14,24 +8,6 @@ export default function Header() {
   const { user,ready } = useContext(UserContext);
   const navigate = useNavigate();  // Change from useHistory to useNavigate
 
-  // useEffect(() => {
-  //   console.log("Header - useEffect: User changed", user);
-
-  //   // Check if the user is not logged in, then navigate to the login page
-  //   if (user) {
-  //     console.log("Header - Redirecting to /login");
-  //     navigate("/login");  // Use useNavigate instead of history.push
-  //   }
-  // }, [user]);
-  // useEffect(() => {
-  //   console.log("Header - useEffect: User changed", user);
-  
-  //   // Check if the user is not logged in, then navigate to the login page
-  //   if (!user) {
-  //     console.log("Header - Redirecting to /login");
-  //     navigate("/login");  // Use useNavigate instead of history.push
-  //   }
-  // }, [user, navigate]);
 
     return(<div>
         <header className='flex justify-between' >
