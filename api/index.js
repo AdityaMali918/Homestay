@@ -133,7 +133,8 @@ app.get('/profile', async (req, res) => {
 //console.log({__dirname})
 app.post('/logout', (req, res) => {
     // res.cookie('token', '').json(true);
-    res.cookie('token', token, { sameSite: 'None', secure: true }).json(userDoc);
+    res.cookie('token', '', { sameSite: 'None', secure: true }).json(true);
+
 })
 
 app.post('/upload-by-link', async (req, res) => {
