@@ -99,7 +99,8 @@ app.post('/login', async (req, res) => {
         if (passOk) {
             jwt.sign({ email: userDoc.email, id: userDoc._id, name: userDoc.name }, jwtSecret, {}, (err, token) => {
                 if (err) throw err;
-                res.cookie('token', token).json(userDoc);
+                // res.cookie('token', token).json(userDoc);
+                res.cookie('token', token, { sameSite: 'None', secure: true }).json(userDoc);
             });
         } else {
             res.status(422).json('password not ok');
@@ -131,7 +132,8 @@ app.get('/profile', async (req, res) => {
 
 //console.log({__dirname})
 app.post('/logout', (req, res) => {
-    res.cookie('token', '').json(true);
+    // res.cookie('token', '').json(true);
+    res.cookie('token', token, { sameSite: 'None', secure: true }).json(userDoc);
 })
 
 app.post('/upload-by-link', async (req, res) => {
