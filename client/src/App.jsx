@@ -15,6 +15,8 @@ import PlacesFormPage from './pages/PlacesFormPage';
 import PlacePage from './pages/PlacePage';
 import BookingPage from './pages/BookingPage';
 import BookingsPage from './pages/BookingsPage';
+import SearchPage from './pages/SearchPage';
+
 //axios.defaults.baseURL='http://localhost:4000';
 axios.defaults.baseURL='https://airbnbclone-noku.onrender.com';
 axios.defaults.withCredentials = true;
@@ -27,6 +29,7 @@ function App() {
           <Route path='/' element={<Layout />} >
             <Route index element={<IndexPage />} />
             <Route path='/login' element={<LoginPage />} />
+            <Route path='/search' element={<SearchPage/>} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/account' element={<ProfilePage />} />
             <Route path='/account/places' element={<PlacesPage />} />
