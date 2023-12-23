@@ -70,13 +70,29 @@ export default function SearchPage() {
     const [search, setSearch] = useState('');
     const [places, setPlaces] = useState([]); // Added state for places
 
-    useEffect(async () => {
+    // useEffect(async () => {
 
-        if (search.trim() === '') {
-            // Skip the function call if search is empty
-            return;
-        }
+    //     if (search.trim() === '') {
+    //         // Skip the function call if search is empty
+    //         return;
+    //     }
 
+    //     const REAL_APP_ID = 'products-ndbcu';
+    //     const app = new Realm.App({ id: REAL_APP_ID });
+    //     const credentials = Realm.Credentials.anonymous();
+    //     try {
+    //         const user = await app.logIn(credentials);
+    //         const searchplace = await user.functions.searchPlaces(search);
+    //         const placesData = JSON.parse(searchplace);
+    //         console.log(places)
+    //         setPlaces(placesData); // Update the places state
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }, [search]);
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
         const REAL_APP_ID = 'products-ndbcu';
         const app = new Realm.App({ id: REAL_APP_ID });
         const credentials = Realm.Credentials.anonymous();
@@ -84,15 +100,11 @@ export default function SearchPage() {
             const user = await app.logIn(credentials);
             const searchplace = await user.functions.searchPlaces(search);
             const placesData = JSON.parse(searchplace);
-            console.log(places)
+            console.log(placesData)
             setPlaces(placesData); // Update the places state
         } catch (error) {
             console.error(error);
         }
-    }, [search]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
     };
 
     return (
