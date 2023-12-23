@@ -71,6 +71,12 @@ export default function SearchPage() {
     const [places, setPlaces] = useState([]); // Added state for places
 
     useEffect(async () => {
+
+        if (search.trim() === '') {
+            // Skip the function call if search is empty
+            return;
+        }
+
         const REAL_APP_ID = 'products-ndbcu';
         const app = new Realm.App({ id: REAL_APP_ID });
         const credentials = Realm.Credentials.anonymous();
