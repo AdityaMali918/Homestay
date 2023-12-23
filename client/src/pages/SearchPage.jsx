@@ -65,57 +65,35 @@
 import React, { useState, useEffect } from 'react';
 import * as Realm from 'realm-web';
 import { Link } from 'react-router-dom';
+import { debounce } from 'lodash';
 
 export default function SearchPage() {
     const [search, setSearch] = useState('');
-    const [places, setPlaces] = useState([]); // Added state for places
+    const [places, setPlaces] = useState([]);
 
-    // useEffect(async () => {
-
-    //     if (search.trim() === '') {
-    //         // Skip the function call if search is empty
-    //         return;
-    //     }
-
-    //     const REAL_APP_ID = 'products-ndbcu';
-    //     const app = new Realm.App({ id: REAL_APP_ID });
-    //     const credentials = Realm.Credentials.anonymous();
-    //     try {
-    //         const user = await app.logIn(credentials);
-    //         const searchplace = await user.functions.searchPlaces(search);
-    //         const placesData = JSON.parse(searchplace);
-    //         console.log(places)
-    //         setPlaces(placesData); // Update the places state
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }, [search]);
-
-    const handleSubmit = async(e) => {
-        e.preventDefault();
+    const debouncedSearch = debounce(async (value) => {
         const REAL_APP_ID = 'products-ndbcu';
         const app = new Realm.App({ id: REAL_APP_ID });
         const credentials = Realm.Credentials.anonymous();
         try {
             const user = await app.logIn(credentials);
-            const searchplace = await user.functions.searchPlaces(search);
+            const searchplace = await user.functions.searchPlaces(value);
             const placesData = JSON.parse(searchplace);
-            console.log(placesData)
-            setPlaces(placesData); // Update the places state
+            setPlaces(placesData);
         } catch (error) {
             console.error(error);
         }
+    }, 300); // Adjust the debounce delay as needed
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        debouncedSearch(search);
     };
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input
-                  //type='text'
-                    // className="w-full border my-2 py-2 px-3 rounded-2xl"
-                    // value={search}
-                    // onChange={(ev) => setSearch(ev.target.value)}
-                    // placeholder="search"
                     type="text"
                     className="w-full border my-2 py-2 px-3 rounded-2xl"
                     value={search}
@@ -156,3 +134,6 @@ export default function SearchPage() {
         </div>
     );
 }
+
+
+   
