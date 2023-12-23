@@ -92,7 +92,12 @@ export default function SearchPage() {
         <div>
             <form onSubmit={handleSubmit}>
                 <input
-                type='text'
+                  //type='text'
+                    // className="w-full border my-2 py-2 px-3 rounded-2xl"
+                    // value={search}
+                    // onChange={(ev) => setSearch(ev.target.value)}
+                    // placeholder="search"
+                    type="text"
                     className="w-full border my-2 py-2 px-3 rounded-2xl"
                     value={search}
                     onChange={(ev) => setSearch(ev.target.value)}
