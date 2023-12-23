@@ -78,6 +78,7 @@ export default function SearchPage() {
             const user = await app.logIn(credentials);
             const searchplace = await user.functions.searchPlaces(search);
             const placesData = JSON.parse(searchplace);
+            console.log(places)
             setPlaces(placesData); // Update the places state
         } catch (error) {
             console.error(error);
