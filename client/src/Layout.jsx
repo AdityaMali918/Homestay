@@ -6,13 +6,12 @@ import Footer from './Footer'
 export default function Layout() {
   return (
     <>
-   
-    <div className='py-4 px-8 flex flex-col min-h-screen'>
     <div className='h-fit relative'>
+    <div className='py-4 px-8 flex flex-col min-h-screen'>
         <Header/>
         <Outlet/>
     </div>
-    <div className='mt-8 absolute bottom-0 w-full'>
+    <div className='mt-8 absolute bottom-0 left-0 w-full'>
         <Footer/>
         </div>
         </div>
