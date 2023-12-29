@@ -32,12 +32,12 @@ export default function SearchPage() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="py-3">
+      <form onSubmit={handleSubmit} className="py-3 flex justify-center item-center m-3">
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className=" border my-2 py-2 px-3 rounded-2xl w-96"
+          className=" border my-2 py-2 px-3 rounded-2xl w-96 m-3"
           placeholder="search"
         />
         <button className="bg-primary p-2  text-white rounded-full w-auto mr-3"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

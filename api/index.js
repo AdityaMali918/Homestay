@@ -29,26 +29,6 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-//app.use(cors({
-//     credentials: true,
-//     origin: 'http://localhost:5173',
-// }));
-
-//app.use(cors());
-
-// app.use(cors({
-//     credentials: true,
-//     origin: 'http://localhost:5173',
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     allowedHeaders: 'Content-Type, Authorization',
-// }));
-
-// const corsOptions = {
-//     origin: 'https://airbnbclone-app.onrender.com',
-//     credentials: true,
-// };
-
-// app.use(cors(corsOptions));
 
 app.use(cors({
     origin:'https://airbnbclone-app.onrender.com',
@@ -149,19 +129,6 @@ app.post('/upload-by-link', async (req, res) => {
 
 const photosMiddleware = multer({ dest: 'uploads/' });
 
-// app.post('/upload',photosMiddleware.array('photos',100),(req,res)=>{
-//     const uploadedFiles = [];
-//     for(let i=0;i<req.files.length;i++){
-//         const {path,originalname} = req.files[i];
-//         const parts = originalname.split('.');
-//         const ext = parts[parts.length-1];
-//         const newPath =path+'.'+ext;
-//         fs.renameSync(path,newPath); 
-
-//         uploadedFiles.push(newPath.replace('uploads/',''));
-//     }
-//   res.json(uploadedFiles);
-// });
 
 app.post('/upload', photosMiddleware.array('photos', 100), (req, res) => {
     const uploadedFiles = [];

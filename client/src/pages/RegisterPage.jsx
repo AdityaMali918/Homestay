@@ -11,6 +11,7 @@ export default function RegisterPage() {
 
     async function registerUser(ev) {
         ev.preventDefault();
+        if (password.length > 7 && /[!@#$%^&*(),.?":{}|<>]/.test(password)) {
         try {
             const response = await axios.post("/register", {
                 name,
@@ -29,6 +30,10 @@ export default function RegisterPage() {
             console.error('Registration error:', e);
             alert('Registration Failed: Please try again later');
         }
+    }
+    else {
+        alert('Password must be greater than 7 characters and contain at least one special character');
+      }
     }
 
     return (

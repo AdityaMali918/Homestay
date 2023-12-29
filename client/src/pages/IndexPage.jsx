@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function IndexPage() {
     const [places, setPlaces] = useState([]);
+    const [visiblePlaces, setVisiblePlaces] = useState(16);
 
     useEffect(() => {
         axios.get('/places').then((response) => {
@@ -12,9 +13,14 @@ export default function IndexPage() {
         });
     }, []);
 
-    return (
+    const handleShowMore = () => {
+        // Increase the number of visible places
+        setVisiblePlaces((prevCount) => prevCount + 6); 
+    };
+
+    return (<>
         <div className="mt-8 grid gap-x-6 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {places.length > 0 && places.map(place => (
+            {places.length > 0 && places.slice(0, visiblePlaces).map(place => (
                 <Link to={`/place/${place._id}`} key={place._id}>
                     <div className="bg-gray-300 rounded-2xl flex mb-2">
                         {place.photos?.[0] && (
@@ -31,5 +37,16 @@ export default function IndexPage() {
                 </Link>
             ))}
         </div>
+        {visiblePlaces < places.length && (
+                <div className="flex flex-col justify-center item-center">
+                    <div className="m-3 font-bold">
+                        Continue exploring
+                    </div>
+                    <div className="bg-black rounded-xl text-white mb-3" onClick={handleShowMore}>
+                        Show more
+                    </div>
+                </div>
+            )}
+        </>
     );
 }

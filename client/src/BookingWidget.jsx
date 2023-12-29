@@ -26,7 +26,9 @@ export default function BookingWidget({ place }) {
     }
 
     async function bookThisPlace(){
-       
+       if(user){
+        if (/^\d{10}$/.test(phone) && place.maxGuests>=numberOfGuests) {
+
        const response=await axios.post('/bookings',
        {checkIn,checkOut,numberOfGuests,name,phone,
         place:place._id,
@@ -34,6 +36,14 @@ export default function BookingWidget({ place }) {
     });
     const bookingId=response.data._id;
     setRedirect(`/account/bookings/${bookingId}`);
+
+}
+else{
+    alert("Insert Valid Data");
+}
+}else{
+    <Navigate to={'/login'}/>
+}
     }
 
 
