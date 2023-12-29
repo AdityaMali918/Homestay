@@ -42,7 +42,7 @@ export default function IndexPage() {
                     <div className="m-3 font-bold">
                         Continue exploring
                     </div>
-                    <div className="bg-black rounded-xl text-white mb-3" onClick={handleShowMore}>
+                    <div className="bg-black rounded-xl text-white mb-3 w-8" onClick={handleShowMore}>
                         Show more
                     </div>
                 </div>

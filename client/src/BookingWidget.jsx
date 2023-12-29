@@ -44,7 +44,7 @@ export default function BookingWidget({ place }) {
             }
         }
         else {
-          return  <Navigate to={'/login'} />
+          alert("Login") 
         }
     }
 

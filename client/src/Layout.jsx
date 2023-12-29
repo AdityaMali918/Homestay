@@ -11,7 +11,7 @@ export default function Layout() {
         <Header/>
         <Outlet/>
     </div>
-    <div className='mt-2 absolute bottom-0 w-full'>
+    <div className='mt-8 absolute bottom-0 w-full'>
         <Footer/>
         </div>
         </div>
