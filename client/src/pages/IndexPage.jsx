@@ -38,7 +38,7 @@ export default function IndexPage() {
             ))}
         </div>
         {visiblePlaces < places.length && (
-                <div className="flex flex-col justify-center item-center">
+                <div className="flex flex-col justify-center items-center">
                     <div className="m-3 font-bold">
                         Continue exploring
                     </div>
