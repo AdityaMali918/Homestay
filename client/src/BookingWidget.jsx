@@ -26,7 +26,7 @@ export default function BookingWidget({ place }) {
     }
 
     async function bookThisPlace() {
-        if (user) {
+        if (!user) {
             if (/^\d{10}$/.test(phone) && place.maxGuests >= numberOfGuests) {
 
                 const response = await axios.post('/bookings',
