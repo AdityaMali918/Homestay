@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function IndexPage() {
     const [places, setPlaces] = useState([]);
-    const [visiblePlaces, setVisiblePlaces] = useState(16);
+    const [visiblePlaces, setVisiblePlaces] = useState(12);
 
     useEffect(() => {
         axios.get('/places').then((response) => {

@@ -1,7 +1,7 @@
-import React, { useState,useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { differenceInCalendarDays } from "date-fns"
 import axios from 'axios';
-import {Navigate} from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { UserContext } from './UserContext';
 
 export default function BookingWidget({ place }) {
@@ -9,15 +9,15 @@ export default function BookingWidget({ place }) {
     const [checkOut, setCheckOut] = useState('');
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [redirect,setRedirect]=useState('');
-    const [ numberOfGuests, setNumberOfGuests ] = useState(1);
-    const{user}= useContext(UserContext);
+    const [redirect, setRedirect] = useState('');
+    const [numberOfGuests, setNumberOfGuests] = useState(1);
+    const { user } = useContext(UserContext);
 
-    useEffect(()=>{
-        if(user){
+    useEffect(() => {
+        if (user) {
             setName(user.name);
         }
-    },[user])
+    }, [user])
 
     let numberOfNights = 0;
 
@@ -25,34 +25,36 @@ export default function BookingWidget({ place }) {
         numberOfNights = differenceInCalendarDays(new Date(checkOut), new Date(checkIn));
     }
 
-    async function bookThisPlace(){
-       if(user){
-        if (/^\d{10}$/.test(phone) && place.maxGuests>=numberOfGuests) {
+    async function bookThisPlace() {
+        if (user) {
+            if (/^\d{10}$/.test(phone) && place.maxGuests >= numberOfGuests) {
 
-       const response=await axios.post('/bookings',
-       {checkIn,checkOut,numberOfGuests,name,phone,
-        place:place._id,
-        price:numberOfNights*place.price,
-    });
-    const bookingId=response.data._id;
-    setRedirect(`/account/bookings/${bookingId}`);
+                const response = await axios.post('/bookings',
+                    {
+                        checkIn, checkOut, numberOfGuests, name, phone,
+                        place: place._id,
+                        price: numberOfNights * place.price,
+                    });
+                const bookingId = response.data._id;
+                setRedirect(`/account/bookings/${bookingId}`);
 
-}
-else{
-    alert("Insert Valid Data");
-}
-}else{
-    <Navigate to={'/login'}/>
-}
+            }
+            else {
+                alert("Insert Valid Data");
+            }
+        }
+        else {
+          return  <Navigate to={'/login'} />
+        }
     }
 
 
-    if(redirect){
-        return <Navigate to={redirect}/>
+    if (redirect) {
+        return <Navigate to={redirect} />
     }
-    
 
-   
+
+
 
     return (
         <div className='bg-white shadow p-4 rounded-2xl '>
