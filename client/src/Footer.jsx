@@ -5,7 +5,7 @@ export default function Footer() {
         <>
             <div className='flex justify-between bg-gray-100 w-gull p-3 pb-3 h-10 rounded-lg'>
                 <div className='font-bold text-xl'>
-                    airbnb
+                    Homestay
                 </div>
                 <div className='gap-3 flex'>
                     <div className='cursor-pointer'>
