@@ -31,7 +31,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-    origin:'https://homestay-of7g.onrender.com/',
+    origin:'https://homestay-of7g.onrender.com',
     credentials: true,
 }))
 
